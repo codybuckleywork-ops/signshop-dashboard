@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  var saved = localStorage.getItem('cutline-theme');
+  if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cutline — Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/theme.css?v=7">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">▞</div>
+      <div class="brand-text">
+        <div class="brand-name" id="shop-name">The Cutline</div>
+        <div class="brand-sub">Production System</div>
+      </div>
+    </div>
+
+    <nav class="side-nav">
+      <a href="#dashboard" class="nav-item" data-page="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="#jobs" class="nav-item" data-page="jobs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span>Jobs</span>
+      </a>
+      <a href="#calendar" class="nav-item" data-page="calendar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        <span>Calendar</span>
+      </a>
+      <a href="#quotes" class="nav-item" data-page="quotes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Quotes</span>
+      </a>
+      <a href="#customers" class="nav-item" data-page="customers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Customers</span>
+      </a>
+      <a href="#history" class="nav-item" data-page="history">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 3"/></svg>
+        <span>History</span>
+      </a>
+      <a href="#materials" class="nav-item" data-page="materials">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
+        <span>Materials</span>
+      </a>
+      <a href="#equipment" class="nav-item" data-page="equipment">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        <span>Equipment</span>
+      </a>
+    </nav>
+
+    <div class="side-foot">
+      <button type="button" class="side-btn" id="theme-toggle" title="Toggle light / dark">◐ <span>Theme</span></button>
+      <button type="button" class="side-btn" id="settings-btn" title="Settings">⚙ <span>Settings</span></button>
+    </div>
+  </aside>
+
+  <div class="main">
+
+    <header class="topbar">
+      <div>
+        <h1 id="page-title">Dashboard</h1>
+        <p class="page-date" id="page-date"></p>
+      </div>
+      <div class="topbar-right">
+        <div class="weather-chip" id="weather-chip" title="Current conditions">
+          <span id="wc-icon">–</span>
+          <span class="wc-temp" id="wc-temp">--°</span>
+          <span class="wc-loc" id="wc-loc"></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- ==================== DASHBOARD ==================== -->
+      <section id="page-dashboard" class="page">
+
+        <div class="today-hero" id="today-hero">
+          <div class="th-head">
+            <h2>Today</h2>
+            <span class="th-count" id="th-count"></span>
+          </div>
+          <div class="th-grid" id="th-grid"></div>
+          <p class="th-empty" id="th-empty" hidden>Nothing due or installing today. Breathe.</p>
+        </div>
+
+        <div class="kpi-grid" id="kpi-grid"></div>
+        <div class="kpi-drill" id="kpi-drill" hidden></div>
+
+        <div class="dash-grid">
+          <div class="dash-col-main">
+
+            <div class="panel">
+              <div class="panel-head">
+                <h2>Weather outlook</h2>
+                <span class="panel-sub" id="weather-loc-label"></span>
+              </div>
+              <div class="weather-now" id="weather-now"><span class="muted">Loading conditions…</span></div>
+              <div class="advisory" id="weather-advisory" hidden></div>
+              <div class="hourly-strip" id="hourly-strip"></div>
+              <div class="forecast-row" id="forecast-row"></div>
+              <button type="button" class="btn btn-ghost btn-sm radar-toggle" id="radar-toggle">🛰 Show live radar</button>
+              <div class="radar-wrap" id="radar-wrap" hidden></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h2>Pipeline</h2><span class="panel-sub">open jobs by stage</span></div>
+              <div class="pipeline-bar" id="pipeline-bar"></div>
+              <div class="pipeline-legend" id="pipeline-legend"></div>
+              <div class="pipe-detail" id="pipeline-detail"></div>
+              <div class="stage-times" id="stage-times"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h2>Needs attention</h2><span class="panel-sub" id="attention-sub"></span></div>
+              <ul class="attn-list" id="attention-list"></ul>
+              <p class="empty small" id="attention-empty" hidden>All clear — nothing overdue, stalled, or on hold.</p>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h2>Daily jobs</h2><span class="panel-sub">last 14 days</span></div>
+              <div class="bar-chart" id="daily-chart"></div>
+              <div class="pipeline-legend chart-legend">
+                <span><span class="pl-dot" style="background:var(--primary)"></span>created</span>
+                <span><span class="pl-dot" style="background:var(--success)"></span>completed</span>
+                <span><span class="pl-dot" style="background:var(--warning)"></span>due (open)</span>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h2>Quick notes</h2></div>
+              <form id="note-form" class="note-form">
+                <input type="text" id="note-input" placeholder="Jot something down before you forget it…" required autocomplete="off">
+                <button type="submit" class="btn btn-primary btn-sm">Post</button>
+              </form>
+              <ul class="note-list" id="note-list"></ul>
+              <p class="empty small" id="note-empty" hidden>Board's clear.</p>
+              <button type="button" class="graveyard-toggle" id="graveyard-toggle" hidden><span id="graveyard-count"></span> ▾</button>
+              <ul class="note-list resolved" id="graveyard-list" hidden></ul>
+            </div>
+
+          </div>
+          <div class="dash-col-side">
+
+            <div class="panel">
+              <div class="panel-head"><h2>Industry news</h2><span class="panel-sub">signage reading</span></div>
+              <ul class="news-list" id="news-list"><li class="muted">Loading headlines…</li></ul>
+              <p class="news-links muted">
+                Read more:
+                <a href="https://signsofthetimes.com/" target="_blank" rel="noopener">Signs of the Times</a> ·
+                <a href="https://www.signs101.com/" target="_blank" rel="noopener">Signs101</a> ·
+                <a href="https://en.wikipedia.org/wiki/Signage" target="_blank" rel="noopener">Signage 101</a>
+              </p>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h2>This week</h2><button type="button" class="linklike" id="week-jump">week view →</button></div>
+              <ul class="wkp-list" id="week-panel-list"></ul>
+              <p class="empty small" id="week-panel-empty" hidden>No dated work in the next 7 days.</p>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h2>Shop tasks</h2></div>
+              <ul id="task-list" class="task-list"></ul>
+              <p class="empty small" id="task-empty" hidden>No open shop tasks.</p>
+              <form id="task-form" class="stack-form">
+                <input type="text" id="task-title" placeholder="Add a shop task — errands, calls, orders" required>
+                <div class="form-row">
+                  <input type="date" id="task-due">
+                  <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                  <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== JOBS ==================== -->
+      <section id="page-jobs" class="page" hidden>
+        <div class="toolbar">
+          <input type="search" id="job-search" class="search-input" placeholder="Search jobs — name, customer, WO number, assignee, location" autocomplete="off">
+          <div class="view-switch" id="view-switch">
+            <button type="button" class="view-btn" data-view="list">List</button>
+            <button type="button" class="view-btn" data-view="kanban">Board</button>
+            <button type="button" class="view-btn" data-view="week">Week</button>
+            <button type="button" class="view-btn" data-view="calendar">Calendar</button>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/api/export/jobs.csv" download title="Download all jobs as CSV">⤓ CSV</a>
+          <button type="button" class="btn btn-ghost btn-sm" id="jobs-import-btn" title="Upload a CSV or calendar (.ics) file to sync with the board">⤒ Import CSV / ICS</button>
+          <input type="file" id="jobs-import-file" accept=".csv,.ics,text/csv,text/calendar" hidden>
+        </div>
+
+        <div class="chip-row" id="stage-chips"></div>
+        <div class="chip-row sub-row" id="substrate-chips"></div>
+
+        <form id="job-form" class="panel add-job">
+          <input type="text" id="job-customer" list="customer-list" placeholder="Customer" required>
+          <input type="text" id="job-name" placeholder="Job — e.g. Storefront sign" required>
+          <select id="job-substrate" title="Substrate">
+            <option value="">Substrate…</option>
+            <option value="acm">ACM / Dibond</option>
+            <option value="coroplast">Coroplast</option>
+            <option value="aluminum">Aluminum</option>
+            <option value="pvc">PVC / Sintra</option>
+            <option value="acrylic">Acrylic</option>
+            <option value="banner">Banner</option>
+            <option value="vinyl">Vinyl / Wrap</option>
+            <option value="magnetic">Magnetic</option>
+            <option value="mdo">MDO / Wood</option>
+            <option value="other">Other</option>
+          </select>
+          <label class="mini-label">Due<input type="date" id="job-due"></label>
+          <label class="mini-label">Install<input type="date" id="job-install"></label>
+          <input type="text" id="job-location" placeholder="Install location — address or city" title="Installation location">
+          <select id="job-priority" title="Priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+          <input type="text" id="job-assigned" list="assignee-list" placeholder="Assign to…" title="Assigned to">
+          <button type="submit" class="btn btn-primary">Add job</button>
+        </form>
+
+        <ul class="job-list" id="job-list"></ul>
+
+        <div class="kanban" id="kanban" hidden></div>
+
+        <div class="week-view" id="week-view" hidden>
+          <div class="wk-summary" id="wk-summary"></div>
+          <div class="week-board" id="week-board"></div>
+        </div>
+
+        <div class="calendar" id="calendar" hidden>
+          <div class="calendar-nav">
+            <button type="button" class="btn btn-ghost btn-sm" id="cal-prev">‹</button>
+            <span class="calendar-title" id="cal-title"></span>
+            <button type="button" class="btn btn-ghost btn-sm" id="cal-today">Today</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="cal-next">›</button>
+          </div>
+          <div class="calendar-grid" id="cal-grid"></div>
+          <p class="calendar-legend"><span class="cal-dot due"></span> due <span class="cal-dot install"></span> install <span class="cal-warn">⚠</span> bad weather</p>
+        </div>
+
+        <p class="empty" id="jobs-empty" hidden>No jobs match. Board's clear.</p>
+        <datalist id="customer-list"></datalist>
+        <datalist id="assignee-list"></datalist>
+        <datalist id="material-name-list"></datalist>
+      </section>
+
+      <!-- ==================== QUOTES ==================== -->
+      <section id="page-quotes" class="page" hidden>
+        <div class="toolbar"><span class="toolbar-note" id="quotes-note"></span></div>
+        <div class="two-col">
+          <div>
+            <div class="material-grid" id="quote-list"></div>
+            <p class="empty" id="quote-empty" hidden>No quotes yet — build one on the right. Accepted quotes convert to jobs with one click.</p>
+          </div>
+          <div class="panel side-form">
+            <div class="panel-head"><h2>New quote</h2></div>
+            <form id="quote-form" class="stack-form">
+              <input type="text" id="q-customer" list="customer-list" placeholder="Customer" required>
+              <input type="text" id="q-title" placeholder="Quote title — e.g. Storefront sign" required>
+              <div id="q-items" class="q-items"></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="q-add-item">＋ Line item</button>
+              <div class="form-row q-foot">
+                <label class="mini-label">Tax %<input type="number" id="q-tax" min="0" step="0.25" value="0"></label>
+                <span class="q-total mono" id="q-total">Total: $0.00</span>
+              </div>
+              <button type="submit" class="btn btn-primary">Save quote</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CUSTOMERS ==================== -->
+      <section id="page-customers" class="page" hidden>
+        <div class="toolbar">
+          <input type="search" id="customer-search" class="search-input" placeholder="Search customers — name, contact, phone, email" autocomplete="off">
+          <span class="toolbar-note" id="customers-note"></span>
+          <a class="btn btn-ghost btn-sm" href="/api/export/customers.csv" download title="Download customers as CSV">⤓ CSV</a>
+        </div>
+        <div class="material-grid customers-grid" id="customer-grid"></div>
+        <p class="empty" id="customer-empty" hidden>No customers yet — they appear automatically when you add jobs.</p>
+      </section>
+
+      <!-- ==================== HISTORY ==================== -->
+      <section id="page-history" class="page" hidden>
+        <div class="toolbar">
+          <input type="search" id="history-search" class="search-input" placeholder="Search completed jobs — name, customer, location, material" autocomplete="off">
+          <span class="toolbar-note" id="history-note"></span>
+          <a class="btn btn-ghost btn-sm" href="/api/export/history.csv" download title="Download job history as CSV">⤓ CSV</a>
+        </div>
+        <ul class="job-list" id="history-list"></ul>
+        <p class="empty" id="history-empty" hidden>No completed jobs yet. Get after it.</p>
+      </section>
+
+      <!-- ==================== MATERIALS ==================== -->
+      <section id="page-materials" class="page" hidden>
+        <div class="toolbar">
+          <span class="toolbar-note" id="materials-note"></span>
+          <button type="button" class="btn btn-ghost btn-sm" id="reorder-email-btn" title="Email yourself everything at or below its reorder point, grouped by vendor">✉ Email reorder list</button>
+          <a class="btn btn-ghost btn-sm" href="/api/export/materials.csv" download title="Download inventory as CSV">⤓ Inventory CSV</a>
+          <a class="btn btn-ghost btn-sm" href="/api/export/material-usage.csv" download title="Download usage log as CSV">⤓ Usage CSV</a>
+          <button type="button" class="btn btn-ghost btn-sm" id="materials-import-btn" title="Upload inventory CSV (upserts by name)">⤒ Import</button>
+          <input type="file" id="materials-import-file" accept=".csv,text/csv" hidden>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="material-grid" id="material-list"></div>
+            <p class="empty" id="material-empty" hidden>No materials tracked yet.</p>
+
+            <div class="panel usage-panel">
+              <div class="panel-head"><h2>Usage log</h2><span class="panel-sub">material posted against jobs</span></div>
+              <div class="table-panel">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>When</th><th>Job</th><th>Material</th><th class="num">Qty</th><th class="num">Sq ft</th><th>Notes</th><th></th></tr>
+                  </thead>
+                  <tbody id="usage-tbody"></tbody>
+                </table>
+                <p class="empty small" id="usage-empty" hidden>Nothing logged yet. Post usage from a job's Materials tab.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel side-form">
+            <div class="panel-head"><h2>Add material</h2></div>
+            <form id="material-form" class="stack-form">
+              <input type="text" id="mat-name" placeholder="e.g. 4mm ACM 4×8 white" required>
+              <div class="form-row">
+                <input type="text" id="mat-sku" placeholder="Product code / SKU">
+                <input type="text" id="mat-vendor" list="vendor-list" placeholder="Vendor">
+              </div>
+              <div class="form-row">
+                <input type="number" id="mat-onhand" placeholder="On hand" min="0" step="0.5">
+                <select id="mat-unit">
+                  <option value="sheets" selected>sheets</option>
+                  <option value="rolls">rolls</option>
+                  <option value="sqft">sq ft</option>
+                  <option value="ft">linear ft</option>
+                  <option value="pcs">pcs</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <input type="number" id="mat-reorder" placeholder="Reorder at" min="0" step="0.5" title="Low-stock warning threshold">
+                <input type="number" id="mat-cost" placeholder="Cost each ($)" min="0" step="0.01">
+              </div>
+              <input type="url" id="mat-url" placeholder="Product link (e.g. grimco.com page)">
+              <button type="submit" class="btn btn-primary">Add material</button>
+              <datalist id="vendor-list"><option value="Grimco"></option></datalist>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== EQUIPMENT ==================== -->
+      <section id="page-equipment" class="page" hidden>
+        <div class="two-col">
+          <div>
+            <div class="material-grid" id="equipment-list"></div>
+            <p class="empty" id="equipment-empty" hidden>No equipment yet.</p>
+          </div>
+          <div class="panel side-form">
+            <div class="panel-head"><h2>Add equipment</h2></div>
+            <form id="equipment-form" class="stack-form">
+              <input type="text" id="eq-name" placeholder="e.g. Roland TrueVIS cutter" required>
+              <input type="number" id="eq-interval" placeholder="Service every N days" value="90" min="1">
+              <button type="submit" class="btn btn-primary">Add equipment</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ==================== JOB MODAL ==================== -->
+<dialog id="job-modal">
+  <div class="modal-body wide">
+    <div class="modal-head">
+      <div>
+        <p class="eyebrow" id="jm-wo">WO-0000</p>
+        <h2 id="jm-title">Job</h2>
+        <p class="muted" id="jm-customer"></p>
+      </div>
+      <button type="button" class="icon-btn" id="jm-close" aria-label="Close">×</button>
+    </div>
+
+    <div class="tab-row" id="jm-tabs">
+      <button type="button" class="tab-btn active" data-tab="details">Details</button>
+      <button type="button" class="tab-btn" data-tab="files">Files <span class="tab-cnt" id="jm-files-cnt" hidden></span></button>
+      <button type="button" class="tab-btn" data-tab="materials">Materials <span class="tab-cnt" id="jm-mats-cnt" hidden></span></button>
+      <button type="button" class="tab-btn" data-tab="activity">Activity</button>
+    </div>
+
+    <!-- --- Details tab --- -->
+    <div class="tab-pane" id="jm-pane-details">
+      <div class="form-grid">
+        <label>Customer<input type="text" id="jm-customer-input" list="customer-list" placeholder="Who is this for?"></label>
+        <label>Job name<input type="text" id="jm-jobname-input" placeholder="e.g. Illuminated cabinet sign"></label>
+        <label>Assigned to<input type="text" id="jm-assigned" list="assignee-list" placeholder="e.g. Cody"></label>
+        <label>Substrate
+          <select id="jm-substrate">
+            <option value="">—</option>
+            <option value="acm">ACM / Dibond</option>
+            <option value="coroplast">Coroplast</option>
+            <option value="aluminum">Aluminum</option>
+            <option value="pvc">PVC / Sintra</option>
+            <option value="acrylic">Acrylic</option>
+            <option value="banner">Banner</option>
+            <option value="vinyl">Vinyl / Wrap</option>
+            <option value="magnetic">Magnetic</option>
+            <option value="mdo">MDO / Wood</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>Priority
+          <select id="jm-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <label>Due<input type="date" id="jm-due"></label>
+        <label>Install<input type="date" id="jm-install"></label>
+        <label>Install location<input type="text" id="jm-location" placeholder="Address or city"></label>
+      </div>
+
+      <div class="install-weather" id="jm-weather" hidden></div>
+
+      <label class="block-label">Job notes<textarea id="jm-notes" rows="3" placeholder="Specs, colors, hardware, gotchas…"></textarea></label>
+
+      <div class="split-head">
+        <h3>Checklist</h3>
+        <span class="muted mono" id="jm-progress"></span>
+      </div>
+      <ul id="jm-checklist" class="checklist"></ul>
+      <form id="jm-check-form" class="inline-form">
+        <input type="text" id="jm-check-input" placeholder="Add item — e.g. order 3 sheets ACM" required>
+        <button type="submit" class="btn btn-primary btn-sm">Add</button>
+      </form>
+    </div>
+
+    <!-- --- Files tab --- -->
+    <div class="tab-pane" id="jm-pane-files" hidden>
+      <form id="jm-file-form" class="file-upload-row">
+        <select id="jm-file-kind" title="What kind of file is this?">
+          <option value="photo">Site photo</option>
+          <option value="proof">Graphic proof</option>
+          <option value="artwork">Artwork / cut file</option>
+          <option value="document">Document</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="text" id="jm-file-label" placeholder="Label (optional) — e.g. north wall before">
+        <input type="file" id="jm-file-input" required>
+        <button type="submit" class="btn btn-primary btn-sm" id="jm-file-upload">Upload</button>
+      </form>
+      <div class="file-grid" id="jm-file-grid"></div>
+      <p class="empty small" id="jm-files-empty" hidden>No files yet. Upload site photos, proofs, cut files…</p>
+    </div>
+
+    <!-- --- Materials tab --- -->
+    <div class="tab-pane" id="jm-pane-materials" hidden>
+      <form id="jm-mat-form" class="stack-form">
+        <div class="form-row">
+          <select id="jm-mat-select" title="Pick from inventory (auto-deducts stock) or type a name below"></select>
+        </div>
+        <input type="text" id="jm-mat-name" placeholder="…or type a material not in inventory" list="material-name-list">
+        <div class="form-row">
+          <label class="mini-label">Qty<input type="number" id="jm-mat-qty" min="0" step="0.25" placeholder="0"></label>
+          <label class="mini-label">Unit
+            <select id="jm-mat-unit">
+              <option value="sqft" selected>sq ft</option>
+              <option value="sheets">sheets</option>
+              <option value="rolls">rolls</option>
+              <option value="ft">linear ft</option>
+              <option value="pcs">pcs</option>
+            </select>
+          </label>
+          <label class="mini-label">Sq ft<input type="number" id="jm-mat-sqft" min="0" step="0.25" placeholder="0"></label>
+          <button type="submit" class="btn btn-primary btn-sm">Post usage</button>
+        </div>
+        <input type="text" id="jm-mat-notes" placeholder="Notes (optional) — e.g. 2 panels + waste">
+        <p class="muted form-hint">Picking from inventory deducts stock automatically. Deleting an entry puts it back.</p>
+      </form>
+      <ul class="usage-list" id="jm-mat-list"></ul>
+      <p class="empty small" id="jm-mats-empty" hidden>No material posted to this job yet.</p>
+      <p class="usage-total mono" id="jm-mat-total" hidden></p>
+    </div>
+
+    <!-- --- Activity tab --- -->
+    <div class="tab-pane" id="jm-pane-activity" hidden>
+      <ul class="timeline" id="jm-timeline"></ul>
+      <p class="empty small" id="jm-timeline-empty" hidden>No activity recorded yet.</p>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" class="btn btn-danger-ghost" id="jm-delete">Delete</button>
+      <button type="button" class="btn btn-ghost" id="jm-print">Print work order</button>
+      <button type="button" class="btn btn-ghost" id="jm-cancel">Close</button>
+      <button type="button" class="btn btn-primary" id="jm-save">Save</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- ==================== SETTINGS MODAL ==================== -->
+<dialog id="settings-modal">
+  <form id="settings-form" class="modal-body" method="dialog">
+    <div class="modal-head">
+      <h2>Settings</h2>
+      <button type="button" class="icon-btn" id="settings-close" aria-label="Close">×</button>
+    </div>
+    <label class="block-label">Shop name<input type="text" id="set-shop-name"></label>
+    <label class="block-label">Location name<input type="text" id="set-location-name"></label>
+    <div class="form-grid two">
+      <label>Latitude<input type="number" step="0.0001" id="set-lat"></label>
+      <label>Longitude<input type="number" step="0.0001" id="set-lon"></label>
+    </div>
+
+    <div class="split-head backup-head">
+      <h3>Daily email overview</h3>
+      <button type="button" class="btn btn-ghost btn-sm" id="digest-test">Send test</button>
+    </div>
+    <label class="block-label" style="flex-direction:row;align-items:center;gap:8px">
+      <input type="checkbox" id="set-digest-enabled" style="width:auto"> Email me a daily shop overview
+    </label>
+    <div class="form-grid two">
+      <label>Send at hour (0–23)<input type="number" id="set-digest-hour" min="0" max="23" value="7"></label>
+      <label>Send to<input type="email" id="set-digest-to" placeholder="you@gmail.com"></label>
+    </div>
+    <div class="form-grid two">
+      <label>Gmail address<input type="email" id="set-smtp-user" placeholder="shop@gmail.com"></label>
+      <label>Gmail app password<input type="password" id="set-smtp-pass" placeholder="16-char app password"></label>
+    </div>
+    <p class="muted form-hint">Uses Gmail SMTP. Create an app password: myaccount.google.com → Security → 2-Step Verification → App passwords. Overdue jobs, today's due/installs, low stock, and open tasks are included.</p>
+
+    <div class="split-head backup-head">
+      <h3>Backups</h3>
+      <button type="button" class="btn btn-ghost btn-sm" id="backup-create">＋ Back up now</button>
+    </div>
+    <p class="muted form-hint">Full snapshots — database, files, and app code. Automatic on startup and before every import. Restoring rolls everything back.</p>
+    <ul class="backup-list" id="backup-list"></ul>
+    <p class="empty small" id="backup-empty" hidden>No backups yet.</p>
+
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" id="settings-cancel">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ==================== CUSTOMER MODAL ==================== -->
+<dialog id="customer-modal">
+  <form id="customer-form" class="modal-body">
+    <div class="modal-head">
+      <div>
+        <p class="eyebrow">Customer</p>
+        <h2 id="cm-name">Customer</h2>
+      </div>
+      <button type="button" class="icon-btn" id="cm-close" aria-label="Close">×</button>
+    </div>
+    <label class="block-label">Contact person<input type="text" id="cm-contact" placeholder="e.g. Sarah at the front desk"></label>
+    <div class="form-grid two">
+      <label>Phone<input type="text" id="cm-phone" placeholder="256-555-0100"></label>
+      <label>Email<input type="text" id="cm-email" placeholder="orders@example.com"></label>
+    </div>
+    <label class="block-label">Notes<textarea id="cm-notes" rows="3" placeholder="Billing quirks, gate codes, preferences, net-30…"></textarea></label>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" id="cm-cancel">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ==================== MATERIAL EDIT MODAL ==================== -->
+<dialog id="material-modal">
+  <form id="mm-form" class="modal-body">
+    <div class="modal-head">
+      <div>
+        <p class="eyebrow">Material</p>
+        <h2 id="mm-title">Edit material</h2>
+      </div>
+      <button type="button" class="icon-btn" id="mm-close" aria-label="Close">×</button>
+    </div>
+    <label class="block-label">Name<input type="text" id="mm-name" required></label>
+    <div class="form-grid two">
+      <label>Product code / SKU<input type="text" id="mm-sku" placeholder="e.g. Grimco item #"></label>
+      <label>Vendor<input type="text" id="mm-vendor" list="vendor-list" placeholder="Grimco"></label>
+    </div>
+    <div class="form-grid two">
+      <label>On hand<input type="number" id="mm-onhand" min="0" step="0.25"></label>
+      <label>Unit
+        <select id="mm-unit">
+          <option value="sheets">sheets</option>
+          <option value="rolls">rolls</option>
+          <option value="sqft">sq ft</option>
+          <option value="ft">linear ft</option>
+          <option value="pcs">pcs</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-grid two">
+      <label>Reorder at<input type="number" id="mm-reorder" min="0" step="0.25"></label>
+      <label>Cost each ($)<input type="number" id="mm-cost" min="0" step="0.01"></label>
+    </div>
+    <label class="block-label">Category<input type="text" id="mm-category" placeholder="e.g. substrate, vinyl, laminate, hardware"></label>
+    <label class="block-label">Shop location<input type="text" id="mm-location" placeholder="e.g. rack B, shelf 3"></label>
+    <label class="block-label">Product link<input type="url" id="mm-url" placeholder="https://www.grimco.com/..."></label>
+    <label class="block-label">Notes<textarea id="mm-notes" rows="2"></textarea></label>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" id="mm-cancel">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="print-area" hidden></div>
+
+<script src="/static/app.js?v=13"></script>
+</body>
+</html>
