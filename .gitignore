@@ -16,3 +16,4 @@ Thumbs.db
 # local data — backup zips and customer job files stay off GitHub
 backups/
 uploads/
+push.bat
