@@ -17,3 +17,6 @@ Thumbs.db
 backups/
 uploads/
 push.bat
+
+# demo runtime data
+demo/demo_data/

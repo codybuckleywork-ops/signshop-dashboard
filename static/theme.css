@@ -856,7 +856,7 @@ input[type="file"]::file-selector-button:hover { border-color: var(--primary); c
 /* ---------- materials / equipment ---------- */
 .two-col { display: grid; grid-template-columns: 1fr 300px; gap: 14px; align-items: start; }
 @media (max-width: 950px) { .two-col { grid-template-columns: 1fr; } }
-.material-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.material-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .m-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 14px;
@@ -1383,3 +1383,4 @@ img, iframe, svg, video { max-width: 100%; }
 /* ---------- work order QR ---------- */
 .print-head-right { display: flex; gap: 14px; align-items: center; }
 .print-qr { width: 82px; height: 82px; }
+ 

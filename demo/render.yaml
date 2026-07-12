@@ -1,0 +1,16 @@
+# Render blueprint for the sign-shop dashboard DEMO.
+# Push this repo to GitHub, then in Render: New > Blueprint, pick the repo.
+# Free tier: no credit card, spins down after ~15 min idle (cold start 30-60s),
+# and the disk is ephemeral — so the demo auto-resets to sample data on restart.
+services:
+  - type: web
+    name: signshop-dashboard-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r demo/requirements.txt
+    startCommand: gunicorn demo.demo:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    envVars:
+      - key: DEMO_DATA_DIR
+        value: /tmp/signshop-demo
+      - key: PYTHON_VERSION
+        value: "3.12.6"
